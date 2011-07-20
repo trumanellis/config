@@ -1,0 +1,60 @@
+#--------------- Ctrl plus left and right arrows to switch ---------------#
+bindkey "^[[1;3D" prev
+bindkey "^[[1;3C" next
+bindkey "^[[1;5B" focus down
+bindkey "^[[1;5A" focus up
+bindkey -k kD stuff ^H
+#-------------------------------------------------------------------------#
+vbell off
+autodetach on
+startup_message off
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+defscrollback 1000
+#terminfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+termcapinfo xterm ti@:te@
+termcapinfo xterm ‘bc@:bs@’
+#----------------------- Interactive window titles -----------------------#
+shelltitle "$ |bash"
+
+# Let's remove some dangerous key bindings ...
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+
+# ... and make them better.
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+
+# remove delay when pressing escape
+maptimeout 0
+
+#-------------------------------------------------------------------------#
+#---------------------------- nested screens -----------------------------#
+#escape ^Oo
+#-------------------------------------------------------------------------#
+#--------------------- keep track of what you're doing -------------------#
+caption always "%{= dW} #~~~~~%{G}%3n %t%? @%u%?%?%{W} ~~~~~# %{= dW} %=#~~~~~%{G}%3n %t%? %u%?%?%{W} ~~~~~# "
+hardstatus on
+hardstatus alwayslastline "%{W}[ %{B}%H %{VimBuddy()}%{W}][%= %{w}%?%-Lw%?%{W}|%n*%f %t%?(%u)%?|%{w}%?%+Lw%?%= %{W}][%{R}%l%{W}][%m/%d/%y %{B}%c:%s%{W}]"
+#-------------------------------------------------------------------------#
+#---------------------------- need a DISPLAY ? ---------------------------#
+setenv DISPLAY ':0'
+setenv TERM=screen
+#-------------------------------------------------------------------------#
+#------------------- sometimes i open more than 9 thingies ---------------#
+bind -c selectHighs 0 select 10
+bind -c selectHighs 1 select 11
+bind -c selectHighs 2 select 12
+bind -c selectHighs 3 select 13
+bind -c selectHighs 4 select 14
+bind -c selectHighs 5 select 15
+bind -c selectHighs 6 select 16
+bind - command -c selectHighs
+#-------------------------------------------------------------------------#
