@@ -11,6 +11,7 @@ call pathogen#runtime_append_all_bundles()
 set nocompatible
 
 syntax on
+filetype on
 filetype plugin indent on
 set nowrap
 set hlsearch 
@@ -52,6 +53,17 @@ nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
 set showmode
 set textwidth=80
+
+" Tasklist settings
+map <Leader>td <Plug>TaskList
+
+" Pep8 settings
+let g:pep8_map='<Leader>8'
+
+" Supertab settings
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
 
 " FSwitch settings
 au! BufEnter *.C let b:fswitchdst = 'h' | let b:fswitchlocs = '../../include/systems'
@@ -99,7 +111,6 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_GotoError=1
 
 " Abbreviations
-ab pymain if __name__=="__main__":
 ab teh the
 
 " Taglist variables
@@ -122,8 +133,8 @@ let Tlist_File_Fold_Auto_Close = 1
 " Tags search
 set tags+=tags;$HOME
 
-" Scons stuff
-set makeprg=scons
-
 " NERDTree settings
 let NERDTreeIgnore=['\.o$', '\~$']
+
+" Fugitive settings
+set statusline+=%{fugitive#statusline()}
