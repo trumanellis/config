@@ -11,7 +11,6 @@ call pathogen#runtime_append_all_bundles()
 set nocompatible
 
 syntax on
-filetype on
 filetype plugin indent on
 set nowrap
 set hlsearch 
@@ -40,10 +39,8 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
-" Code folding
-set foldmethod=indent
-set foldlevel=99
+map <Left> <c-w>h
+map <Right> <c-w>l
 
 " Comment Settings
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -54,20 +51,9 @@ set pastetoggle=<F12>
 set showmode
 set textwidth=80
 
-" Tasklist settings
-map <Leader>td <Plug>TaskList
-
-" Pep8 settings
-let g:pep8_map='<Leader>8'
-
-" Supertab settings
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-
 " FSwitch settings
-au! BufEnter *.C let b:fswitchdst = 'h' | let b:fswitchlocs = '../../include/systems'
-au! BufEnter *.h let b:fswitchdst = 'C' | let b:fswitchlocs = '../../src/systems'
+au! BufEnter *.C let b:fswitchdst = 'h' | let b:fswitchlocs = '../../include/systems,../../include/solvers,../../include/fe'
+au! BufEnter *.h let b:fswitchdst = 'C' | let b:fswitchlocs = '../../src/systems,../../src/solvers,../../src/fe'
 command! A :FSHere
 command! Al :FSRight
 command! AL :FSSplitRight
@@ -111,6 +97,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_GotoError=1
 
 " Abbreviations
+ab pymain if __name__=="__main__":
 ab teh the
 
 " Taglist variables
@@ -136,5 +123,10 @@ set tags+=tags;$HOME
 " NERDTree settings
 let NERDTreeIgnore=['\.o$', '\~$']
 
-" Fugitive settings
-set statusline+=%{fugitive#statusline()}
+" GNU indent style    
+function! GnuIndent()
+  setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
+  setlocal shiftwidth=2
+  setlocal tabstop=8
+endfunction
+au FileType C,h call GnuIndent() 
