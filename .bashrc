@@ -21,6 +21,7 @@ set -o vi
 
 # add your customizations below
 alias ls='ls --color'
+alias g="grep -Ir --exclude='*\.svn*'"
 source ~/.bash_prompt
 export HISTCONTROL=ignoreboth
 

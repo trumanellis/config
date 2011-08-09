@@ -26,6 +26,9 @@ set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servernam
 " Search settings
 nnoremap <space> :noh<return><space>
 
+" Change repeat command to set cursor to before change
+nmap . .`[
+
 " Indent Settings
 set expandtab
 set smarttab
