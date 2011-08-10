@@ -10,7 +10,12 @@
 
 # first, source the system bashrc
 if [ -r /etc/bashrc ]; then
-    . /etc/bash.bashrc
+  . /etc/bash.bashrc
+fi
+
+# smart tab completion
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
 fi
 
 # default editor: this is used by svn, etc.
