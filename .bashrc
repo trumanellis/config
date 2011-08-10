@@ -10,8 +10,16 @@
 
 # first, source the system bashrc
 if [ -r /etc/bashrc ]; then
-    . /etc/bash.bashrc
+  . /etc/bash.bashrc
 fi
+
+# smart tab completion
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# disable command-not-found
+unset command_not_found_handle
 
 # default editor: this is used by svn, etc.
 # the only safe default for EDITOR is one which instructs the user how to quit.
