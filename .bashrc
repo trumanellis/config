@@ -30,6 +30,14 @@ set -o vi
 # add your customizations below
 alias ls='ls --color'
 alias g="grep -Ir --exclude='*\.svn*'"
+alias sl='ls'
+alias sc='screen'
+alias vi='vim'
+alias l='ls'
+alias sl='ls'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 source ~/.bash_prompt
 export HISTCONTROL=ignoreboth
 
