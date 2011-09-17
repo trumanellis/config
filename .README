@@ -1,6 +1,6 @@
-dpkg --get-selections > installed-software
+dpkg --get-selections > .installed-software
 
-dpkg --set-selections < installed-software
+dpkg --set-selections < .installed-software
 
 dselect
 
