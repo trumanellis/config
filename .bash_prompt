@@ -101,7 +101,7 @@ function promptcmd () {
             PS1="${PS1}\[${COLOR_YELLOW}\]\u"
         fi
     else
-        if [ ${USER} == ${LOGNAME} ]; then     
+        if [ "${USER}" == "${LOGNAME}" ]; then     
             PS1="${PS1}\[${COLOR_GREEN}\]\u"
         else                               
             PS1="${PS1}\[${COLOR_BROWN}\]\u"
