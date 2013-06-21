@@ -9,9 +9,9 @@
 # NOTE: some programs (ie, winscp) fail if this generates any output.
 
 # first, source the system bashrc
-if [ -r /etc/bashrc ]; then
-  . /etc/bash.bashrc
-fi
+#if [ -r /etc/bashrc ]; then
+#  . /etc/bash.bashrc
+#fi
 
 # smart tab completion
 if [ -f /etc/bash_completion ]; then
