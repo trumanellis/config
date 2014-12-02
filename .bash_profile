@@ -42,5 +42,8 @@ alias ....='cd ../../..'
 source ~/.bash_prompt
 export HISTCONTROL=ignoreboth
 
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
 # source .bash_custom for machine specific settings
 source ~/.bash_custom
