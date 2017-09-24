@@ -28,7 +28,6 @@ export EDITOR=vim
 set -o vi
 
 # add your customizations below
-alias ls='ls --color'
 alias g="grep -Ir --exclude='*\.svn*'"
 alias ctags="ctags --extra=+f -R"
 alias sl='ls'
